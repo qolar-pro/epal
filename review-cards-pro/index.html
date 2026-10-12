@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="el-GR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Αστέρι – Κάρτες κριτικών Google, σχεδιασμένες από σένα</title>
+<meta name="description" content="Σχεδίασε την κάρτα κριτικής σου, έλεγξε το link, υπολόγισε τι αλλάζει στη βαθμολογία σου και παράγγειλε. Με NFC και QR, με ειλικρίνεια για το τι κάνει και τι δεν κάνει μια κάρτα.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23151515'/%3E%3Cpath d='M16 4l3.6 7.6 8.2 1.1-6 5.8 1.5 8.2L16 22.600 8.700 26.700l1.500-8.200-6-5.800 8.200-1.100z' fill='%23ff5a1f'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="top">
+  <a class="brand" href="#top"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l4.2 9 9.800 1.300-7.200 6.800 1.800 9.700L16 24l-8.600 4.800 1.800-9.700L2 12.300 11.800 11z" fill="currentColor"/></svg><span id="brandName">Αστέρι</span></a>
+  <nav aria-label="Κύρια πλοήγηση"><a href="#studio">Σχεδίασε</a><a href="#math">Υπολόγισε</a><a href="#compare">Σύγκριση</a><a href="#how">Χρήση</a><a href="#order">Παραγγελία</a></nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div>
+    <p class="kicker">Κάρτες κριτικών Google · NFC + QR</p>
+    <h1>Ζήτα την κριτική τη στιγμή που ο πελάτης <em>χαμογελά</em>.</h1>
+    <p class="lead">Οι περισσότεροι ευχαριστημένοι πελάτες δεν γράφουν ποτέ κριτική. Όχι επειδή δεν θέλουν, αλλά επειδή το να τη βρουν είναι δουλειά. Η κάρτα αφαιρεί αυτή τη δουλειά: ένα άγγιγμα ή μια σάρωση και ανοίγει η φόρμα.</p>
+    <p class="actions"><a class="btn solid" href="#studio">Σχεδίασε τη δική σου κάρτα →</a><a class="btn" href="#math">Δες τι αλλάζει στη βαθμολογία</a></p>
+  </div>
+  <div class="stage" aria-label="Σχηματική απεικόνιση: κάρτα που αγγίζει κινητό">
+    <div class="phone"><div class="screen">
+      <p class="s-q">Πώς ήταν η εμπειρία σου;</p>
+      <p class="s-stars" aria-hidden="true">★★★★★</p>
+      <p class="s-note">Σχηματική απεικόνιση</p>
+    </div></div>
+    <div class="tapcard"><span class="tc-stars" aria-hidden="true">★★★★★</span><b>Άφησε μια κριτική</b><div class="tc-qr" id="heroQr" aria-hidden="true"></div></div>
+    <div class="ripple" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-prob">
+  <h2 id="h-prob" class="sr">Γιατί η τριβή μετράει</h2>
+  <ol class="friction">
+    <li><span>Χωρίς κάρτα</span><p>Θυμάται ο πελάτης → ψάχνει το όνομα στο Google → βρίσκει το προφίλ → ψάχνει πού γράφεται κριτική → συνδέεται. Κάθε βήμα χάνει κόσμο.</p></li>
+    <li><span>Με κάρτα</span><p>Άγγιγμα ή σάρωση → ανοίγει η φόρμα → αστεράκια και δύο λέξεις. Το μόνο που μένει είναι η επιθυμία του πελάτη.</p></li>
+  </ol>
+</section>
+
+<section id="studio" aria-labelledby="h-studio">
+  <div class="head"><span class="num">01</span><h2 id="h-studio">Σχεδίασε την κάρτα σου</h2><p>Όλα γίνονται στον περιηγητή σου. Στο τέλος κατεβάζεις αρχείο έτοιμο για εκτύπωση.</p></div>
+  <div class="studio">
+    <form id="designForm" class="controls" novalidate>
+      <div class="field"><label for="d-link">Link κριτικής Google</label><input id="d-link" type="url" inputmode="url" spellcheck="false" autocomplete="off" value="https://search.google.com/local/writereview?placeid=EXAMPLE_PLACE_ID"></div>
+      <div id="linkDoctor" class="doctor" role="status"></div>
+      <div class="field"><label for="d-name">Όνομα επιχείρησης</label><input id="d-name" type="text" maxlength="40" value="Καφέ Αστέρι"></div>
+      <div class="field"><label for="d-cta">Κείμενο πρόσκλησης</label><input id="d-cta" type="text" maxlength="40" value="Πες μας πώς ήταν"></div>
+      <fieldset class="themes"><legend>Χρώμα</legend>
+        <div id="swatches" class="swatches"></div>
+        <div class="field inline"><label for="d-color">Δικό σου χρώμα</label><input id="d-color" type="color" value="#151515"></div>
+      </fieldset>
+      <div class="field"><label for="d-size">Μέγεθος QR πάνω στην κάρτα: <output id="d-size-o">26</output> mm</label><input id="d-size" type="range" min="18" max="34" step="1" value="26"></div>
+      <div class="field"><label for="d-ecl">Ανθεκτικότητα QR σε φθορά</label><select id="d-ecl"><option value="L">Χαμηλή (L)</option><option value="M" selected>Μεσαία (M)</option><option value="Q">Υψηλή (Q)</option><option value="H">Μέγιστη (H)</option></select></div>
+    </form>
+    <div class="preview">
+      <div id="cardOut" class="card-frame"></div>
+      <dl class="metrics" id="metrics"></dl>
+      <p id="qrVerdict" class="verdict" role="status"></p>
+      <p class="actions"><button type="button" class="btn solid" id="dlCard">Λήψη για εκτύπωση (SVG)</button><button type="button" class="btn" id="dlQr">Μόνο το QR (SVG)</button></p>
+      <p class="muted small">Το αρχείο έχει 3 mm περιθώριο κοπής (bleed) και το QR σε διανυσματική μορφή. Τα κείμενα χρησιμοποιούν γραμματοσειρά συστήματος: για τυπογραφείο ζήτα μετατροπή σε καμπύλες ή στείλε μας το όνομα της γραμματοσειράς που θέλεις.</p>
+    </div>
+  </div>
+</section>
+
+<section id="math" aria-labelledby="h-math">
+  <div class="head"><span class="num">02</span><h2 id="h-math">Τι αλλάζει στη βαθμολογία σου;</h2><p>Καθαρά μαθηματικά, όχι υπόσχεση. Εσύ βάζεις τα νούμερα.</p></div>
+  <div class="mathbox">
+    <form id="mathForm" class="controls" novalidate>
+      <div class="field"><label for="m-r">Τωρινή βαθμολογία</label><input id="m-r" type="number" min="1" max="5" step="0.1" value="4.2"></div>
+      <div class="field"><label for="m-n">Τωρινές κριτικές</label><input id="m-n" type="number" min="0" step="1" value="48"></div>
+      <div class="field"><label for="m-c">Πελάτες την εβδομάδα</label><input id="m-c" type="number" min="1" step="1" value="120"></div>
+      <div class="field"><label for="m-p">Ποσοστό που θα γράψει κριτική (%)</label><input id="m-p" type="number" min="0.5" max="100" step="0.5" value="5"></div>
+      <div class="field"><label for="m-s">Μέσος όρος των νέων κριτικών</label><input id="m-s" type="number" min="1" max="5" step="0.1" value="4.7"></div>
+      <div class="field"><label for="m-t">Στόχος βαθμολογίας</label><input id="m-t" type="number" min="1" max="5" step="0.1" value="4.5"></div>
+    </form>
+    <div id="mathOut" class="mathout" aria-live="polite"></div>
+  </div>
+  <p class="muted small measure">Τύπος: νέος μέσος = (R·N + s·k) / (N + k), όπου R η βαθμολογία, N οι κριτικές, s ο μέσος των νέων και k το πλήθος των νέων. Το ποσοστό είναι δικό σου εκτίμηση: δεν υπάρχει εγγυημένος αριθμός. Η κάρτα βοηθά να ρωτάς, δεν αλλάζει το πόσο καλή είναι η εμπειρία.</p>
+</section>
+
+<section id="compare" aria-labelledby="h-cmp">
+  <div class="head"><span class="num">03</span><h2 id="h-cmp">Ειλικρινής σύγκριση</h2><p>Η κάρτα δεν είναι πάντα η καλύτερη λύση. Να πού κερδίζει και πού χάνει.</p></div>
+  <div class="tablewrap"><table class="cmp">
+    <caption class="sr">Σύγκριση τρόπων ζήτησης κριτικής</caption>
+    <thead><tr><th scope="col">Τρόπος</th><th scope="col">Πλεονέκτημα</th><th scope="col">Μειονέκτημα</th><th scope="col">Κόστος</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Προφορικά</th><td>Προσωπικό, δουλεύει αμέσως</td><td>Ο πελάτης ξεχνά μέχρι να βγει από το κατάστημα</td><td>0 €</td></tr>
+      <tr><th scope="row">Κάρτα NFC + QR</th><td>Το κάνει ο πελάτης επιτόπου, χωρίς αναζήτηση</td><td>Χρειάζεται να τη δώσεις ή να είναι ορατή· NFC μόνο σε κινητά με NFC</td><td>περίπου 7 € / τεμ.</td></tr>
+      <tr><th scope="row">QR σε τυπωμένο φυλλάδιο</th><td>Φθηνό, χωρίς τσιπάκι</td><td>Ο πελάτης πρέπει να ανοίξει κάμερα</td><td>πολύ μικρό</td></tr>
+      <tr><th scope="row">Email ή SMS μετά την επίσκεψη</th><td>Φτάνει σε όλους όσοι έχεις στοιχεία</td><td>Χρειάζεται συγκατάθεση (GDPR) και περνά ώρα</td><td>εξαρτάται από το εργαλείο</td></tr>
+    </tbody>
+  </table></div>
+  <p class="measure">Η καλύτερη πρακτική είναι συνδυασμός: προφορική πρόσκληση και κάρτα στο χέρι. Η κάρτα δίνει κάτι χειροπιαστό στο «θα το κάνω αργότερα».</p>
+</section>
+
+<section id="how" aria-labelledby="h-how">
+  <div class="head"><span class="num">04</span><h2 id="h-how">Πού και πότε τη δίνεις</h2><p>Η στιγμή μετράει περισσότερο από το υλικό.</p></div>
+  <div class="how">
+    <ul class="moments">
+      <li><b>Μετά από κάτι που πήγε καλά.</b> Ένα ευχαριστώ ή ένα χαμόγελο είναι η ένδειξη.</li>
+      <li><b>Στο ταμείο ή στην παράδοση.</b> Ο πελάτης έχει ήδη το κινητό στο χέρι.</li>
+      <li><b>Μέσα στη σακούλα ή στην απόδειξη.</b> Χωρίς πίεση, με μια φράση.</li>
+      <li><b>Στο τραπέζι.</b> Η βάση δουλεύει όταν περιμένουν.</li>
+    </ul>
+    <div class="checklist"><h3>Λίστα έναρξης</h3><ul id="checklist"></ul><p class="muted small">Οι επιλογές σου αποθηκεύονται μόνο σε αυτή τη συσκευή.</p></div>
+  </div>
+  <aside class="rule" aria-labelledby="h-rule"><h3 id="h-rule">Οι κανόνες της Google, με απλά λόγια</h3>
+    <div class="dd"><div><h4>Επιτρέπεται</h4><ul><li>Να ζητάς κριτική από όλους τους πελάτες</li><li>Να δίνεις εύκολο link ή κάρτα</li><li>Να απαντάς σε κάθε κριτική</li></ul></div>
+    <div><h4>Δεν επιτρέπεται</h4><ul><li>Δώρο ή έκπτωση με αντάλλαγμα κριτική</li><li>Να ζητάς κριτική μόνο από τους ικανοποιημένους</li><li>Να γράφεις εσύ ή οι υπάλληλοί σου κριτικές για την επιχείρηση</li></ul></div></div>
+    <p class="muted small">Οι πολιτικές αλλάζουν. Διάβασε πάντα την τρέχουσα πολιτική περιεχομένου χρηστών της Google.</p></aside>
+</section>
+
+<section id="order" aria-labelledby="h-order">
+  <div class="head"><span class="num">05</span><h2 id="h-order">Παραγγελία</h2><p>Ετοιμάζεις το μήνυμα εδώ και το στέλνεις εσύ. Δεν ζητάμε στοιχεία πληρωμής σε αυτή τη σελίδα.</p></div>
+  <div class="grid" id="productGrid"></div>
+  <div class="orderbox">
+    <form id="orderForm" class="controls" novalidate>
+      <div class="field"><label for="o-product">Προϊόν</label><select id="o-product"></select></div>
+      <div class="field"><label for="o-qty">Ποσότητα</label><input id="o-qty" type="number" min="1" max="1000" step="1" value="25"></div>
+      <div class="field"><label for="o-biz">Επωνυμία επιχείρησης</label><input id="o-biz" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="o-name">Ονοματεπώνυμο</label><input id="o-name" type="text" autocomplete="name"></div>
+      <div class="field"><label for="o-email">Email</label><input id="o-email" type="email" autocomplete="email"></div>
+      <div class="field"><label for="o-tel">Τηλέφωνο</label><input id="o-tel" type="tel" autocomplete="tel" pattern="[0-9+()\s\-]{8,20}"></div>
+      <div class="field"><label for="o-notes">Σημειώσεις (διεύθυνση αποστολής, λογότυπο)</label><textarea id="o-notes" rows="3"></textarea></div>
+      <div class="check"><input id="o-consent" type="checkbox"><label for="o-consent">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για την εξυπηρέτηση της παραγγελίας.</label></div>
+      <p id="orderMsg" class="err" role="alert"></p>
+      <p><button class="btn solid" type="submit">Ετοίμασε την παραγγελία</button></p>
+    </form>
+    <aside class="summary"><h3>Σύνοψη</h3><table class="sum" id="sumTable"><tbody></tbody></table><p class="formula" id="sumFormula"></p><div id="orderResult" aria-live="polite"></div></aside>
+  </div>
+</section>
+
+<section class="band" id="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">Τι δεν υποσχόμαστε</h2>
+  <ul class="nopromise">
+    <li><b>Δεν εγγυόμαστε αριθμό κριτικών.</b> Η κάρτα μειώνει την τριβή, δεν δημιουργεί ευχαριστημένους πελάτες.</li>
+    <li><b>Δεν γράφουμε και δεν αγοράζουμε κριτικές.</b> Ούτε προτείνουμε κάτι τέτοιο.</li>
+    <li><b>Το NFC δεν δουλεύει παντού.</b> Σε iPhone χρειάζεται XS ή νεότερο, σε Android ενεργό NFC. Γι' αυτό υπάρχει πάντα και QR.</li>
+    <li><b>Δεν αποθηκεύουμε δεδομένα.</b> Ό,τι γράφεις εδώ μένει στον περιηγητή σου.</li>
+  </ul>
+  <details><summary>Αν αλλάξει το link μου;</summary><p>Το τυπωμένο QR δεν αλλάζει. Αν θέλεις ευελιξία, βάλε στην κάρτα ένα δικό σου σύντομο link που ανακατευθύνει στο Google και αλλάζεις προορισμό όποτε θες.</p></details>
+  <details><summary>Πόσο μικρό μπορεί να είναι το QR;</summary><p>Ως κανόνας, κάθε τετραγωνάκι πρέπει να έχει τουλάχιστον περίπου 0,35 mm. Ο σχεδιαστής παραπάνω σου υπολογίζει το μέγεθος και σε προειδοποιεί.</p></details>
+  <details><summary>Βοηθά το σκούρο χρώμα στην κάρτα;</summary><p>Ναι, αρκεί το QR να μένει σκούρο πάνω σε ανοιχτό φόντο. Γι' αυτό το QR μπαίνει πάντα σε λευκό πλαίσιο με την απαραίτητη λευκή ζώνη γύρω του.</p></details>
+</section>
+</main>
+
+<footer>
+  <p><b id="footBrand">Αστέρι</b> · <span id="footContact"></span></p>
+  <p class="muted small">Ανεξάρτητη υπηρεσία, χωρίς σύνδεση με την Google LLC. Τα Google και Google Maps είναι εμπορικά σήματα της Google LLC. Οι τιμές είναι ενδεικτικές, χωρίς ΦΠΑ.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="qr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
