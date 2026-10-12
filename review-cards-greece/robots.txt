@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /kalathi
+Disallow: /tameio
+Disallow: /epitixia
+Sitemap: https://aster-greece.vercel.app/sitemap.xml
