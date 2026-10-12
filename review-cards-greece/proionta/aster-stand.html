@@ -24,7 +24,13 @@
 <main id="main">
 <div class="crumbs"><a href="/">Αρχική</a> › <a href="/proionta">Προϊόντα</a> › <span aria-current="page">Aster Stand</span></div>
 <div class="pdp">
-  <div class="pdp-stage" id="pdp-stage"><div id="stage-card"></div></div>
+  <div class="pdp-stage" id="pdp-stage">
+    <div class="pdp-tabs" role="group" aria-label="Προβολή"><button type="button" id="tab-design" aria-pressed="true">Το σχέδιό σου</button><button type="button" id="tab-photo" aria-pressed="false">Προϊόν 3D</button><button type="button" id="tab-use" aria-pressed="false">Σε χρήση</button></div>
+    <div id="pane-design" class="pane"><div id="stage-card"></div></div>
+    <div id="pane-photo" class="pane hide"><img id="photo" src="/assets/img/stand-graphite-900.jpg" width="900" height="900" alt="Aster Stand: φωτορεαλιστική απεικόνιση 3D"></div>
+    <div id="pane-use" class="pane hide"><img id="usephoto" src="/assets/img/table-1800.jpg" width="1800" height="1200" alt="Aster Stand σε χρήση" loading="lazy"></div>
+    <p class="fine cap" id="stage-cap">Ζωντανή προεπισκόπηση του σχεδίου σου.</p>
+  </div>
   <div>
     <h1>Aster Stand</h1><p class="sub">Στο τραπέζι. Στον πάγκο. Στο ταμείο.</p>
     <p class="price"><span id="p-unit"></span> <span class="fine" id="p-vatl"></span></p><p class="vat-note">Η τιμή αλλάζει με την ποσότητα. Μεταφορικά και ΦΠΑ στο ταμείο.</p>

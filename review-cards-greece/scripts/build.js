@@ -72,7 +72,7 @@ add({
   <h1 class="rv">${esc(S.brand)} Card.</h1>
   <p class="sub rv">Μία κάρτα. Μία κριτική.</p>
   <p class="links rv"><a class="lnk" href="/proionta/aster-card">Μάθε περισσότερα</a><a class="lnk" href="/proionta/aster-card#buy">Αγορά</a></p>
-  <div class="stage rv" id="heroStage"><div id="heroCard"></div></div>
+  <figure class="hero-fig rv"><img src="/assets/img/hero-1800.jpg" srcset="/assets/img/hero-900.jpg 900w, /assets/img/hero-1800.jpg 1800w" sizes="(max-width: 1100px) 100vw, 1100px" width="1800" height="1200" alt="Κινητό που αγγίζει κάρτα Aster Card με NFC και QR" fetchpriority="high"><figcaption>Φωτορεαλιστική απεικόνιση 3D. Το σχέδιο στην κάρτα είναι δείγμα.</figcaption></figure>
   <p class="price-line rv">Από <strong data-net="${cheapest}"></strong> <span data-vat-label>+ ΦΠΑ</span> / τεμ.</p>
 </section>
 <section class="dark statement" aria-labelledby="h-stmt"><h2 id="h-stmt" class="sr">Η ιδέα</h2>
@@ -93,7 +93,7 @@ add({
     <article class="tile rv span2"><p class="k">QR</p><h3>Και για όσους δεν έχουν NFC.</h3><p>Η κάμερα του κινητού αρκεί. Ο ίδιος προορισμός, δύο τρόποι να φτάσεις. Το QR ελέγχεται πριν την εκτύπωση.</p></article>
   </div></section>
 <section class="light" id="proionta" aria-labelledby="h-prod"><h2 id="h-prod" class="big rv">Διάλεξε το σημείο επαφής.</h2>
-  <div class="prod-grid">${S.products.map((p, i) => `<a class="pcard rv" href="/proionta/${p.slug}"><div class="thumb" data-sku="${p.sku}" data-color="${['graphite', 'pine', 'vermilion'][i % 3]}"></div><h3>${esc(p.name)}</h3><p class="tag">${esc(p.short)}</p><p class="from">Από <strong data-net="${p.price}"></strong> <span data-vat-label>+ ΦΠΑ</span>${p.unit ? ' / ' + p.unit : ''}</p><span class="lnk">Αγορά</span></a>`).join('')}</div></section>
+  <div class="prod-grid">${S.products.map((p, i) => `<a class="pcard rv" href="/proionta/${p.slug}"><div class="thumb"><img src="/assets/img/${p.sku}-${['graphite', 'pine', 'vermilion'][i % 3]}-450.jpg" width="450" height="450" loading="lazy" alt="${esc(p.name)}: φωτορεαλιστική απεικόνιση 3D"></div><h3>${esc(p.name)}</h3><p class="tag">${esc(p.short)}</p><p class="from">Από <strong data-net="${p.price}"></strong> <span data-vat-label>+ ΦΠΑ</span>${p.unit ? ' / ' + p.unit : ''}</p><span class="lnk">Αγορά</span></a>`).join('')}</div></section>
 <section class="gray" aria-labelledby="h-sec"><h2 id="h-sec" class="big rv">Για κάθε επιχείρηση, η σωστή στιγμή.</h2>
   <div class="sectors">
     <article class="sector rv"><h3>Εστίαση</h3><p>Καφέ, εστιατόρια, μπαρ, ζαχαροπλαστεία.</p><p class="where">Βάση στο τραπέζι · κάρτα στον λογαριασμό</p></article>
@@ -120,18 +120,25 @@ add({
   slug: 'proionta', page: 'catalog', nav: 'catalog', title: `Προϊόντα – ${S.brand}`, desc: 'Κάρτες, βάσεις τραπεζιού και αυτοκόλλητα NFC και QR για κριτικές Google. Τιμές για επιχειρήσεις, εκπτώσεις ποσότητας.',
   body: `<div class="crumbs"><a href="/">Αρχική</a> › <span aria-current="page">Προϊόντα</span></div>
 <header class="page-h"><h1>Προϊόντα.</h1><p class="sub">Τρία σημεία επαφής. Το ίδιο link.</p></header>
-<section class="tight"><div class="prod-grid">${S.products.map((p, i) => `<a class="pcard" href="/proionta/${p.slug}"><div class="thumb" data-sku="${p.sku}" data-color="${['graphite', 'pine', 'vermilion'][i % 3]}"></div><h3>${esc(p.name)}</h3><p class="tag">${esc(p.tagline)}</p><p>${esc(p.size)} · ${esc(p.material)}</p><p class="from">Από <strong data-net="${p.price}"></strong> <span data-vat-label>+ ΦΠΑ</span>${p.unit ? ' / ' + p.unit : ' / τεμ.'}</p><span class="lnk">Διάλεξε και παράγγειλε</span></a>`).join('')}</div>
+<section class="tight"><div class="prod-grid">${S.products.map((p, i) => `<a class="pcard" href="/proionta/${p.slug}"><div class="thumb"><img src="/assets/img/${p.sku}-${['graphite', 'pine', 'vermilion'][i % 3]}-450.jpg" width="450" height="450" loading="lazy" alt="${esc(p.name)}: φωτορεαλιστική απεικόνιση 3D"></div><h3>${esc(p.name)}</h3><p class="tag">${esc(p.tagline)}</p><p>${esc(p.size)} · ${esc(p.material)}</p><p class="from">Από <strong data-net="${p.price}"></strong> <span data-vat-label>+ ΦΠΑ</span>${p.unit ? ' / ' + p.unit : ' / τεμ.'}</p><span class="lnk">Διάλεξε και παράγγειλε</span></a>`).join('')}</div>
 <p class="fine" style="margin-top:28px">Εκπτώσεις ποσότητας: ${S.discounts.filter((d) => d.rate).map((d) => `${d.min}+ τεμ. −${Math.round(d.rate * 100)}%`).join(' · ')}. <a href="/gia-epixeiriseis">Πολλά καταστήματα;</a></p></section>`
 });
 
 /* ===================== PRODUCT PAGES ===================== */
+const USE = { card: 'hero', stand: 'table' };
 S.products.forEach((p) => {
   add({
     slug: 'proionta/' + p.slug, page: 'product', sku: p.sku, nav: 'catalog', title: `${p.name} – ${p.short} | ${S.brand}`, desc: `${p.name}: ${p.tagline} ${p.size}, ${p.material}. Εκτύπωση με το όνομά σου, NFC + QR, αποστολή σε όλη την Ελλάδα.`,
     ld: { '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.short, brand: { '@type': 'Brand', name: S.brand }, offers: { '@type': 'Offer', priceCurrency: 'EUR', price: p.price.toFixed(2), priceSpecification: { '@type': 'PriceSpecification', price: p.price.toFixed(2), priceCurrency: 'EUR', valueAddedTaxIncluded: false }, availability: 'https://schema.org/InStock', url: `${site}/proionta/${p.slug}`, areaServed: 'GR' } },
     body: `<div class="crumbs"><a href="/">Αρχική</a> › <a href="/proionta">Προϊόντα</a> › <span aria-current="page">${esc(p.name)}</span></div>
 <div class="pdp">
-  <div class="pdp-stage" id="pdp-stage"><div id="stage-card"></div></div>
+  <div class="pdp-stage" id="pdp-stage">
+    <div class="pdp-tabs" role="group" aria-label="Προβολή"><button type="button" id="tab-design" aria-pressed="true">Το σχέδιό σου</button><button type="button" id="tab-photo" aria-pressed="false">Προϊόν 3D</button>${USE[p.sku] ? '<button type="button" id="tab-use" aria-pressed="false">Σε χρήση</button>' : ''}</div>
+    <div id="pane-design" class="pane"><div id="stage-card"></div></div>
+    <div id="pane-photo" class="pane hide"><img id="photo" src="/assets/img/${p.sku}-graphite-900.jpg" width="900" height="900" alt="${esc(p.name)}: φωτορεαλιστική απεικόνιση 3D"></div>
+    ${USE[p.sku] ? `<div id="pane-use" class="pane hide"><img id="usephoto" src="/assets/img/${USE[p.sku]}-1800.jpg" width="1800" height="1200" alt="${esc(p.name)} σε χρήση" loading="lazy"></div>` : ''}
+    <p class="fine cap" id="stage-cap">Ζωντανή προεπισκόπηση του σχεδίου σου.</p>
+  </div>
   <div>
     <h1>${esc(p.name)}</h1><p class="sub">${esc(p.tagline)}</p>
     <p class="price"><span id="p-unit"></span> <span class="fine" id="p-vatl"></span></p><p class="vat-note">Η τιμή αλλάζει με την ποσότητα. Μεταφορικά και ΦΠΑ στο ταμείο.</p>

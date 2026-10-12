@@ -13,7 +13,6 @@
 
   /* ---------- home ---------- */
   if (page === 'home') {
-    var hc = $('heroCard'); D.paint(hc, 'card', { name: 'Καφέ Αστέρι', color: 'graphite', qr: D.encode('https://g.page/r/example/review') }); A.tilt($('heroStage'), hc);
     var wordsEl = $('words'), spans;
     wordsEl.innerHTML = wordsEl.textContent.trim().split(/\s+/).map(function (w) { return '<span>' + D.esc(w) + '</span>'; }).join(' ');
     spans = Array.prototype.slice.call(wordsEl.children);
@@ -23,14 +22,6 @@
       spans.forEach(function (s, i) { s.classList.toggle('lit', i / spans.length < p * 1.05); });
     };
     window.addEventListener('scroll', light, { passive: true }); window.addEventListener('resize', light); light();
-  }
-
-  /* ---------- catalog ---------- */
-  if (page === 'catalog' || page === 'home') {
-    Array.prototype.forEach.call(document.querySelectorAll('.thumb[data-sku]'), function (t) {
-      var n = el('div'); t.appendChild(n); D.paint(n, t.getAttribute('data-sku'), { name: 'Καφέ Αστέρι', color: t.getAttribute('data-color') || 'graphite', qr: D.encode('https://g.page/r/example/review') });
-      n.style.transform = 'none';
-    });
   }
 
   /* ---------- product page ---------- */
@@ -52,6 +43,7 @@
       diag = st.link ? D.diagnose(st.link) : { cls: '', tag: '', text: 'Βάλε το link κριτικής σου για να δεις τον QR.', ok: false };
       var box = $('p-doctor'); box.className = 'doctor ' + diag.cls; box.textContent = ''; if (diag.tag) box.appendChild(el('b', { class: diag.cls }, diag.tag + ' ')); box.appendChild(document.createTextNode(diag.text));
       D.paint(stage, sku, { name: st.name, color: st.color, qr: diag.ok ? D.encode(st.link) : null });
+      $('photo').src = '/assets/img/' + sku + '-' + st.color + '-900.jpg';
       var combined = st.qty + Cart.skuQty(sku), rate = P.tierRate(S, combined), unit = Math.round(p.price * 100), unitNet = Math.round(unit * (1 - rate));
       $('tiers').textContent = '';
       S.discounts.forEach(function (d, i) {
@@ -65,6 +57,8 @@
     $('qty-dec').addEventListener('click', function () { qtyI.value = Math.max(1, (parseInt(qtyI.value, 10) || 1) - 1); repaint(); });
     $('qty-inc').addEventListener('click', function () { qtyI.value = Math.min(5000, (parseInt(qtyI.value, 10) || 0) + 1); repaint(); });
     document.addEventListener('vat:changed', repaint);
+    var panes = { design: $('pane-design'), photo: $('pane-photo'), use: $('pane-use') }, caps = { design: 'Ζωντανή προεπισκόπηση του σχεδίου σου.', photo: 'Φωτορεαλιστική απεικόνιση 3D με δείγμα σχεδίου. Το τελικό προϊόν μπορεί να διαφέρει ελαφρώς σε χρώμα και υλικό.', use: 'Φωτορεαλιστική απεικόνιση 3D. Το σχέδιο είναι δείγμα.' };
+    Object.keys(panes).forEach(function (k) { var t = $('tab-' + k); if (!t) return; t.addEventListener('click', function () { Object.keys(panes).forEach(function (j) { if (panes[j]) panes[j].classList.toggle('hide', j !== k); var tj = $('tab-' + j); if (tj) tj.setAttribute('aria-pressed', j === k ? 'true' : 'false'); }); $('stage-cap').textContent = caps[k]; }); });
     A.tilt($('pdp-stage'), stage);
     $('p-add').addEventListener('click', function () {
       var msg = $('p-msg'); msg.textContent = '';
