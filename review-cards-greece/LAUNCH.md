@@ -38,3 +38,8 @@ Have a Greek lawyer review them (consumer law, GDPR, distance selling, personali
 - `assets/og.png` is a generated preview image; replace it with your own artwork if you like.
 - Test one real order end-to-end (with `demo: false`), including the emails and a COD and a bank-transfer case.
 - Run `node tests/run.js` after changing prices, validators or the API.
+
+## 7. Product images
+All product, hero and "in use" images in `assets/img/` are **3D renders (CGI)**, not photographs, and are captioned as such on the site. They show sample designs.
+Replace them with real product photos from your supplier when you have them (keep the file names, or edit `scripts/build.js`).
+Source of the renders: `render-src/` (Blender via `bpy`, Cycles; `tex.js` bakes the print artwork, `scene.py` renders, `convert.py` exports JPEGs). The Greek text in the artwork and the sample QR link are fictional.
