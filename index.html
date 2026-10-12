@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Β΄ ΕΠΑΛ Πληροφορική – Μελέτη</title>
+<meta name="description" content="Σύντομες σημειώσεις, κουίζ, flashcards και εργαλεία για τα μαθήματα του Β΄ Εσπερινού ΕΠΑ.Λ., Τομέας Πληροφορικής.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e7490'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' text-anchor='middle' fill='white'%3E01%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>
+  try { var t = localStorage.getItem('epal.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="top">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="Μενού μαθήματος" aria-expanded="false" hidden>
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a class="brand" href="#/"><span class="brand-mark mono">01</span><span class="brand-text">Β΄ ΕΠΑΛ <b>Πληροφορική</b></span></a>
+  <nav class="topnav" aria-label="Κύρια πλοήγηση">
+    <a href="#/" data-nav="home">Μαθήματα</a>
+    <a href="#/test" data-nav="test">Τεστ</a>
+    <a href="#/tools" data-nav="tools">Εργαλεία</a>
+  </nav>
+  <form class="search" id="searchForm" role="search">
+    <input id="searchInput" type="search" placeholder="Αναζήτηση…" aria-label="Αναζήτηση" autocomplete="off">
+  </form>
+  <button class="icon-btn" id="themeBtn" aria-label="Εναλλαγή θέματος" title="Φωτεινό / σκούρο">
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 2.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
+  </button>
+</header>
+<div id="app" class="shell"><main id="main" tabindex="-1"><noscript>Η σελίδα χρειάζεται JavaScript.</noscript></main></div>
+
+<script>window.COURSES = [];</script>
+<script src="data/d1.js"></script>
+<script src="data/d2.js"></script>
+<script src="data/d3.js"></script>
+<script src="data/d4.js"></script>
+<script src="data/d5.js"></script>
+<script src="data/d6.js"></script>
+<script src="tools.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
