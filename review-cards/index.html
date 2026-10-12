@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="el-GR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StarTap – Κάρτες NFC και QR για κριτικές Google</title>
+<meta name="description" content="Κάρτες, βάσεις και αυτοκόλλητα NFC και QR που ανοίγουν κατευθείαν τη φόρμα κριτικής της επιχείρησής σου στο Google. Δοκίμασε τον QR κωδικό και υπολόγισε την παραγγελία σου.">
+<meta property="og:title" content="StarTap – Κάρτες κριτικών Google">
+<meta property="og:description" content="Ο πελάτης αγγίζει ή σκανάρει και γράφει κριτική σε δευτερόλεπτα.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1f3a'/%3E%3Cpath d='M16 5l3.4 7 7.6 1-5.5 5.3 1.4 7.6L16 22.2 9.1 25.9l1.4-7.6L5 13l7.6-1z' fill='%23f5b301'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="top">
+  <a class="brand" href="#top" aria-label="StarTap, αρχική"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l4 8.4 9.2 1.2-6.7 6.4 1.7 9.1L16 23.7 7.8 28.1l1.7-9.1L2.8 12.6 12 11.4z" fill="currentColor"/></svg><span id="brandName">StarTap</span></a>
+  <nav aria-label="Κύρια πλοήγηση">
+    <a href="#pos">Πώς δουλεύει</a>
+    <a href="#demo">Δοκίμασε QR</a>
+    <a href="#proionta">Προϊόντα</a>
+    <a href="#paraggelia">Παραγγελία</a>
+    <a href="#faq">Ερωτήσεις</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-text">
+    <p class="eyebrow">Κάρτες κριτικών Google</p>
+    <h1>Ο πελάτης αγγίζει ή σκανάρει. Η κριτική ξεκινά αμέσως.</h1>
+    <p class="lead">Κάρτες, βάσεις και αυτοκόλλητα με NFC και QR που ανοίγουν κατευθείαν τη φόρμα κριτικής της επιχείρησής σου στο Google. Χωρίς εφαρμογή, χωρίς αναζήτηση, χωρίς να χάνεται ο πελάτης στον δρόμο.</p>
+    <p class="cta-row"><a class="btn primary" href="#paraggelia">Κάνε παραγγελία</a> <a class="btn" href="#demo">Δες τον QR σου τώρα</a></p>
+    <ul class="ticks">
+      <li>Λειτουργεί με iPhone και Android</li>
+      <li>Δεν χρειάζεται μπαταρία</li>
+      <li>Άδειες κάρτες, έτοιμες για το δικό σου link</li>
+    </ul>
+  </div>
+  <figure class="hero-art" aria-label="Παράδειγμα κάρτας κριτικής">
+    <div class="card-art">
+      <div class="card-top"><span class="stars" aria-hidden="true">★★★★★</span><span class="nfc" aria-hidden="true">))) NFC</span></div>
+      <p class="card-title">Άφησε μας μια κριτική</p>
+      <p class="card-sub">Άγγιξε το κινητό ή σκάναρε</p>
+      <div class="card-qr" id="heroQr" aria-hidden="true"></div>
+    </div>
+    <figcaption>Το QR της κάρτας είναι ζωντανό: αλλάζει όταν βάλεις το δικό σου link παρακάτω.</figcaption>
+  </figure>
+</section>
+
+<section id="pos" aria-labelledby="h-pos">
+  <h2 id="h-pos">Πώς δουλεύει</h2>
+  <ol class="steps">
+    <li><h3>Μας δίνεις το link</h3><p>Το link κριτικής της επιχείρησής σου στο Google (παρακάτω σου δείχνουμε πού το βρίσκεις).</p></li>
+    <li><h3>Προγραμματίζουμε και τυπώνουμε</h3><p>Γράφουμε το link στο τσιπάκι NFC και τυπώνουμε το ίδιο link ως QR, με το λογότυπό σου.</p></li>
+    <li><h3>Ο πελάτης αγγίζει</h3><p>Με NFC ή κάμερα, ανοίγει η φόρμα κριτικής. Μέσα σε λίγα δευτερόλεπτα έχει αφήσει τα αστεράκια του.</p></li>
+  </ol>
+  <aside class="note"><strong>Πώς δουλεύει το NFC:</strong> το τσιπάκι αποθηκεύει το link ως μερικές δεκάδες byte. Όταν πλησιάσεις το κινητό (περίπου 1–4 cm), το κινητό τροφοδοτεί το τσιπάκι με ηλεκτρομαγνητικό πεδίο και διαβάζει το περιεχόμενο. Γι' αυτό δεν χρειάζεται μπαταρία.</aside>
+</section>
+
+<section id="demo" aria-labelledby="h-demo">
+  <h2 id="h-demo">Δοκίμασε τον QR κωδικό</h2>
+  <p class="measure">Βάλε το link κριτικής σου και δες αμέσως τον QR που θα τυπωθεί. Όλα γίνονται στον περιηγητή σου, δεν στέλνουμε τίποτα πουθενά.</p>
+  <div class="demo">
+    <form id="qrForm" class="stack" novalidate>
+      <div class="field">
+        <label for="reviewUrl">Link κριτικής Google</label>
+        <input id="reviewUrl" name="reviewUrl" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://search.google.com/local/writereview?placeid=…" value="https://search.google.com/local/writereview?placeid=EXAMPLE_PLACE_ID">
+      </div>
+      <div class="field small">
+        <label for="ecl">Επίπεδο διόρθωσης σφαλμάτων</label>
+        <select id="ecl">
+          <option value="L">L – έως 7% φθορά</option>
+          <option value="M" selected>M – έως 15% φθορά</option>
+          <option value="Q">Q – έως 25% φθορά</option>
+          <option value="H">H – έως 30% φθορά</option>
+        </select>
+      </div>
+      <p id="qrMsg" class="err" role="alert"></p>
+      <dl class="facts" id="qrFacts"></dl>
+      <p><button type="button" class="btn" id="dlSvg">Λήψη QR (SVG)</button></p>
+    </form>
+    <div class="qr-box"><div id="qrOut" aria-live="polite"></div></div>
+  </div>
+  <details class="more">
+    <summary>Πώς βρίσκω το link κριτικής μου;</summary>
+    <ol>
+      <li>Άνοιξε το Google Business Profile της επιχείρησής σου και βρες την ενότητα «Ζήτα κριτικές» ή «Πάρε περισσότερες κριτικές».</li>
+      <li>Αντίγραψε το link που σου δίνει (συνήθως μοιάζει με <code>https://g.page/r/…/review</code>).</li>
+      <li>Ή χρησιμοποίησε το Place ID σου: <code>https://search.google.com/local/writereview?placeid=ΤΟ_PLACE_ID</code>.</li>
+      <li>Δοκίμασε το link στο κινητό σου πριν παραγγείλεις.</li>
+    </ol>
+  </details>
+  <details class="more">
+    <summary>Γιατί το QR είναι τετράγωνο γεμάτο τελείες;</summary>
+    <p>Το link γράφεται σε byte (UTF-8, ένα byte ανά λατινικό χαρακτήρα) και τα byte σε bit. Κάθε σκούρο τετραγωνάκι είναι 1 και κάθε ανοιχτό 0. Προστίθενται επιπλέον byte διόρθωσης σφαλμάτων (Reed-Solomon), ώστε το QR να διαβάζεται και με γρατζουνιές. Όσο μεγαλύτερο το link και ισχυρότερη η διόρθωση, τόσο μεγαλύτερη η «έκδοση» (περισσότερα τετραγωνάκια). Γι' αυτό συμφέρει σύντομο link.</p>
+  </details>
+</section>
+
+<section id="proionta" aria-labelledby="h-prod">
+  <h2 id="h-prod">Προϊόντα</h2>
+  <div class="grid" id="productGrid"></div>
+  <h3>Τεχνικά χαρακτηριστικά</h3>
+  <table class="specs">
+    <caption>Βασικά χαρακτηριστικά της κάρτας NFC + QR</caption>
+    <thead><tr><th scope="col">Χαρακτηριστικό</th><th scope="col">Τιμή</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Διαστάσεις</th><td>85,6 × 54 mm (μέγεθος πιστωτικής κάρτας)</td></tr>
+      <tr><th scope="row">Υλικό</th><td>PVC, ματ ή γυαλιστερό</td></tr>
+      <tr><th scope="row">Τσιπάκι NFC</th><td>Τύπου NTAG213, 144 byte χρήσιμης μνήμης</td></tr>
+      <tr><th scope="row">Εμβέλεια ανάγνωσης</th><td>περίπου 1–4 cm</td></tr>
+      <tr><th scope="row">Συμβατότητα</th><td>Android με NFC· iPhone XS και νεότερα (το QR δουλεύει με όλες τις κάμερες)</td></tr>
+      <tr><th scope="row">Τροφοδοσία</th><td>Καμία: παθητικό τσιπάκι</td></tr>
+      <tr><th scope="row">Εκτύπωση</th><td>Λογότυπο και χρώματα της επιχείρησης</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Οι τιμές είναι ενδεικτικές, χωρίς ΦΠΑ.</p>
+</section>
+
+<section id="paraggelia" aria-labelledby="h-order">
+  <h2 id="h-order">Υπολόγισε και κάνε παραγγελία</h2>
+  <div class="order">
+    <form id="orderForm" class="stack" novalidate>
+      <fieldset>
+        <legend>Τι θέλεις</legend>
+        <div class="field"><label for="product">Προϊόν</label><select id="product" name="product"></select></div>
+        <div class="field small"><label for="qty">Ποσότητα</label><input id="qty" name="qty" type="number" min="1" max="1000" step="1" value="10" required></div>
+      </fieldset>
+      <fieldset>
+        <legend>Στοιχεία επικοινωνίας</legend>
+        <div class="field"><label for="biz">Επωνυμία επιχείρησης</label><input id="biz" name="biz" type="text" autocomplete="organization" required></div>
+        <div class="field"><label for="name">Ονοματεπώνυμο</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="tel">Τηλέφωνο</label><input id="tel" name="tel" type="tel" autocomplete="tel" pattern="[0-9+()\s\-]{8,20}" placeholder="69xxxxxxxx"></div>
+        <div class="field"><label for="link">Link κριτικής Google</label><input id="link" name="link" type="url" placeholder="https://…"></div>
+        <div class="field"><label for="notes">Σημειώσεις (λογότυπο, χρώματα, διεύθυνση αποστολής)</label><textarea id="notes" name="notes" rows="4"></textarea></div>
+        <div class="check"><input id="consent" name="consent" type="checkbox" required><label for="consent">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για την εξυπηρέτηση της παραγγελίας.</label></div>
+      </fieldset>
+      <p id="orderMsg" class="err" role="alert"></p>
+      <p><button class="btn primary" type="submit">Ετοίμασε την παραγγελία</button></p>
+    </form>
+    <aside class="summary" aria-labelledby="h-sum">
+      <h3 id="h-sum">Σύνοψη</h3>
+      <table class="sum" id="sumTable"><tbody></tbody></table>
+      <p class="formula" id="sumFormula"></p>
+      <div id="orderResult" aria-live="polite"></div>
+    </aside>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">Συχνές ερωτήσεις</h2>
+  <details><summary>Μπορώ να ζητώ κριτικές με κάρτες;</summary><p>Ναι, το να ζητάς κριτική από πελάτες είναι ΟΚ. Οι πολιτικές του Google όμως απαγορεύουν να προσφέρεις αντάλλαγμα (έκπτωση, δώρο) για κριτική και να φιλτράρεις ώστε να ζητάς κριτική μόνο από ικανοποιημένους. Ζήτα την από όλους.</p></details>
+  <details><summary>Χρειάζεται εφαρμογή;</summary><p>Όχι. Το NFC ανοίγει το link στον περιηγητή ή στο Google Maps, και το QR διαβάζεται από την κάμερα του κινητού.</p></details>
+  <details><summary>Αν αλλάξω το link, χρειάζομαι νέες κάρτες;</summary><p>Το QR είναι τυπωμένο, άρα ναι. Για να το αποφύγεις, μπορούμε να βάλουμε ένα σύντομο δικό σου link που ανακατευθύνει στο Google και αλλάζεις προορισμό όποτε θες.</p></details>
+  <details><summary>Τι γίνεται με τα προσωπικά δεδομένα;</summary><p>Αυτή η σελίδα δεν αποθηκεύει και δεν στέλνει τίποτα αυτόματα. Η φόρμα παραγγελίας ετοιμάζει ένα μήνυμα που στέλνεις εσύ. Οι κάρτες περιέχουν μόνο το δημόσιο link κριτικής.</p></details>
+  <details><summary>Πώς πληρώνω;</summary><p>Μετά την παραγγελία σου στέλνουμε προσφορά και στοιχεία πληρωμής (κάρτα ή τραπεζική κατάθεση). Δεν ζητάμε στοιχεία πληρωμής σε αυτή τη σελίδα.</p></details>
+</section>
+</main>
+
+<footer>
+  <p><span id="footBrand">StarTap</span> · <span id="footContact"></span></p>
+  <p class="muted">Η υπηρεσία είναι ανεξάρτητη και δεν συνδέεται με την Google LLC. Τα Google και Google Maps είναι εμπορικά σήματα της Google LLC.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="qr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
