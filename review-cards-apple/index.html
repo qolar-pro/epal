@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="el-GR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster – Μία κάρτα. Μία κριτική.</title>
+<meta name="description" content="Aster: κάρτες NFC και QR που ανοίγουν κατευθείαν τη φόρμα κριτικής της επιχείρησής σου στο Google. Διάλεξε χρώμα, δες τον QR σου και παράγγειλε.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1d1f'/%3E%3Cpath d='M16 5l3.3 7 7.700 1-5.600 5.400 1.400 7.700L16 22.300 9.200 26.100l1.400-7.700L5 13l7.700-1z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<nav class="gnav" aria-label="Κύρια πλοήγηση">
+  <div class="gnav-in">
+    <a class="gnav-brand" href="#top" aria-label="Aster, αρχική"><svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l4.200 9 9.800 1.300-7.200 6.800 1.800 9.700L16 24l-8.600 4.800 1.800-9.700L2 12.300 11.800 11z" fill="currentColor"/></svg> <span id="brandName">Aster</span></a>
+    <ul class="gnav-links"><li><a href="#overview">Επισκόπηση</a></li><li><a href="#colors">Χρώματα</a></li><li><a href="#how">Πώς δουλεύει</a></li><li><a href="#compare">Σύγκριση</a></li><li><a href="#faq">Ερωτήσεις</a></li></ul>
+    <a class="gnav-buy" href="#buy">Αγορά</a>
+  </div>
+</nav>
+
+<main id="main">
+<section class="hero" id="top">
+  <p class="eyebrow rv">Νέο</p>
+  <h1 class="rv"><span id="heroName">Aster</span> Card.</h1>
+  <p class="sub rv">Μία κάρτα. Μία κριτική.</p>
+  <p class="links rv"><a class="lnk" href="#overview">Μάθε περισσότερα</a><a class="lnk" href="#buy">Αγορά</a></p>
+  <div class="stage rv" id="heroStage"><div class="card3d" id="heroCard"></div></div>
+  <p class="price-line rv">Από <strong id="fromPrice"></strong> / τεμ. + ΦΠΑ<sup><a href="#fn1">1</a></sup></p>
+</section>
+
+<section class="dark statement" id="overview" aria-labelledby="h-stmt">
+  <h2 id="h-stmt" class="sr">Η ιδέα</h2>
+  <p class="words" id="words">Οι ευχαριστημένοι πελάτες υπάρχουν. Αυτό που λείπει είναι ένας εύκολος δρόμος για να το πουν. Η Aster Card τον αφαιρεί από τη μέση: ένα άγγιγμα, μια φόρμα, δύο λέξεις.</p>
+</section>
+
+<section class="light bento-sec" aria-labelledby="h-bento">
+  <h2 id="h-bento" class="big rv">Μικρή. Έξυπνη. Έτοιμη.</h2>
+  <div class="bento">
+    <article class="tile rv span2"><p class="k">NFC</p><h3>Άγγιξε και ανοίγει.</h3><p>Το τσιπάκι κρατά το link σου. Δεν χρειάζεται μπαταρία, ούτε εφαρμογή.</p></article>
+    <article class="tile rv inv"><p class="stat">0</p><h3>μπαταρίες</h3><p>Ενεργοποιείται από το ίδιο το κινητό.</p></article>
+    <article class="tile rv"><p class="stat">1–4<small>cm</small></p><h3>εμβέλεια</h3><p>Πλησίασε το κινητό στην κάρτα.</p></article>
+    <article class="tile rv span2 qr-tile"><div><p class="k">QR</p><h3>Και για όσους δεν έχουν NFC.</h3><p>Η κάμερα του κινητού αρκεί. Ο ίδιος προορισμός, δύο τρόποι να φτάσεις.</p></div><div class="mini-qr" id="tileQr" aria-hidden="true"></div></article>
+    <article class="tile rv"><p class="stat">85,6<small>mm</small></p><h3>μέγεθος πιστωτικής</h3><p>Χωράει σε πορτοφόλι, σε σακούλα, σε απόδειξη.</p></article>
+    <article class="tile rv inv span2"><p class="k">Εκτύπωση</p><h3>Με το δικό σου όνομα και χρώμα.</h3><p>Διάλεξε παρακάτω. Εμείς προγραμματίζουμε και τυπώνουμε.</p></article>
+  </div>
+</section>
+
+<section class="gray colors" id="colors" aria-labelledby="h-col">
+  <h2 id="h-col" class="big rv">Διάλεξε το δικό σου.</h2>
+  <p class="sub rv">Το χρώμα <strong id="colorName">Γραφίτης</strong>.</p>
+  <div class="stage rv"><div class="card3d" id="colorCard"></div></div>
+  <div class="swatches" id="swatches" role="group" aria-label="Χρώμα κάρτας"></div>
+  <form class="inline-form" id="designForm" novalidate>
+    <div class="field"><label for="d-name">Όνομα επιχείρησης</label><input id="d-name" type="text" maxlength="32" value="Καφέ Αστέρι"></div>
+    <div class="field wide"><label for="d-link">Link κριτικής Google</label><input id="d-link" type="url" inputmode="url" spellcheck="false" autocomplete="off" value="https://search.google.com/local/writereview?placeid=EXAMPLE_PLACE_ID"></div>
+  </form>
+  <p id="linkDoctor" class="doctor" role="status"></p>
+</section>
+
+<section class="dark how" id="how" aria-labelledby="h-how">
+  <h2 id="h-how" class="big rv">Τρία δευτερόλεπτα. Τρία βήματα.</h2>
+  <ol class="steps">
+    <li class="rv"><span class="n">1</span><h3>Δώσ' την.</h3><p>Στο ταμείο, στην παράδοση, στο τραπέζι. Μετά από μια καλή στιγμή.</p></li>
+    <li class="rv"><span class="n">2</span><h3>Άγγιγμα ή σάρωση.</h3><p>Το κινητό ανοίγει κατευθείαν τη φόρμα κριτικής.</p></li>
+    <li class="rv"><span class="n">3</span><h3>Αστέρια και δύο λέξεις.</h3><p>Η κριτική γράφεται εκεί και τότε, πριν ξεχαστεί.</p></li>
+  </ol>
+  <div class="calc rv" aria-labelledby="h-calc">
+    <h3 id="h-calc">Δες τι αλλάζει στη βαθμολογία σου</h3>
+    <form id="mathForm" class="calc-form" novalidate>
+      <div class="field"><label for="m-r">Βαθμολογία</label><input id="m-r" type="number" min="1" max="5" step="0.1" value="4.2"></div>
+      <div class="field"><label for="m-n">Κριτικές</label><input id="m-n" type="number" min="0" step="1" value="48"></div>
+      <div class="field"><label for="m-c">Πελάτες / εβδομάδα</label><input id="m-c" type="number" min="1" step="1" value="120"></div>
+      <div class="field"><label for="m-p">% που γράφει κριτική</label><input id="m-p" type="number" min="0.5" max="100" step="0.5" value="5"></div>
+      <div class="field"><label for="m-s">Μέσος των νέων</label><input id="m-s" type="number" min="1" max="5" step="0.1" value="4.7"></div>
+    </form>
+    <div id="mathOut" class="calc-out" aria-live="polite"></div>
+    <p class="fine">Υπολογισμός από τα δικά σου νούμερα, όχι υπόσχεση. νέος μέσος = (R·N + s·k) / (N + k).</p>
+  </div>
+</section>
+
+<section class="light compare" id="compare" aria-labelledby="h-cmp">
+  <h2 id="h-cmp" class="big rv">Ποιο ταιριάζει σε σένα;</h2>
+  <div class="tablewrap rv"><table>
+    <caption class="sr">Σύγκριση προϊόντων Aster</caption>
+    <thead><tr><td></td><th scope="col">Aster Card<small>από 6,90 €</small></th><th scope="col">Aster Stand<small>από 12,90 €</small></th><th scope="col">Aster Sticker<small>από 9,50 €</small></th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Ιδανικό για</th><td>Να το δίνεις στο χέρι</td><td>Τραπέζια και πάγκους</td><td>Ταμείο, τζάμι, συσκευασίες</td></tr>
+      <tr><th scope="row">NFC</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><th scope="row">QR</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><th scope="row">Εκτύπωση με το όνομά σου</th><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+      <tr><th scope="row">Ορατό από μακριά</th><td class="n">—</td><td class="y">✓</td><td class="n">—</td></tr>
+      <tr><th scope="row">Πάει μαζί με τον πελάτη</th><td class="y">✓</td><td class="n">—</td><td class="n">—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="gray buy" id="buy" aria-labelledby="h-buy">
+  <h2 id="h-buy" class="big">Παράγγειλε.</h2>
+  <p class="sub">Φτιάξε την παραγγελία σου. Στο τέλος ετοιμάζουμε το μήνυμα και το στέλνεις εσύ.</p>
+  <div class="buy-grid">
+    <form id="orderForm" class="steps-form" novalidate>
+      <fieldset><legend><span class="n">1</span> Ποιο προϊόν;</legend><div class="choices" id="prodChoices" role="group"></div></fieldset>
+      <fieldset><legend><span class="n">2</span> Πόσα;</legend><div class="choices qty" id="qtyChoices" role="group"></div><div class="field small"><label for="o-qty">Ή γράψε ποσότητα</label><input id="o-qty" type="number" min="1" max="1000" step="1" value="25"></div><p class="hint" id="tierHint"></p></fieldset>
+      <fieldset><legend><span class="n">3</span> Τα στοιχεία σου</legend>
+        <div class="field"><label for="o-biz">Επωνυμία επιχείρησης</label><input id="o-biz" type="text" autocomplete="organization"></div>
+        <div class="field"><label for="o-name">Ονοματεπώνυμο</label><input id="o-name" type="text" autocomplete="name"></div>
+        <div class="field"><label for="o-email">Email</label><input id="o-email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="o-tel">Τηλέφωνο</label><input id="o-tel" type="tel" autocomplete="tel" pattern="[0-9+()\s\-]{8,20}"></div>
+        <div class="field"><label for="o-notes">Σημειώσεις (διεύθυνση αποστολής, λογότυπο)</label><textarea id="o-notes" rows="3"></textarea></div>
+        <div class="check"><input id="o-consent" type="checkbox"><label for="o-consent">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για την εξυπηρέτηση της παραγγελίας.</label></div>
+      </fieldset>
+      <p id="orderMsg" class="err" role="alert"></p>
+      <p><button class="btn" type="submit">Ετοίμασε την παραγγελία</button></p>
+      <div id="orderResult" aria-live="polite"></div>
+    </form>
+    <aside class="bag" aria-labelledby="h-bag"><h3 id="h-bag">Η παραγγελία σου</h3><div class="bag-card" id="bagCard"></div><table class="sum" id="sumTable"><tbody></tbody></table><p class="fine" id="sumFormula"></p></aside>
+  </div>
+</section>
+
+<section class="light faq" id="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq" class="big">Ερωτήσεις.</h2>
+  <div class="faq-list">
+    <details><summary>Μπορώ να ζητώ κριτικές με κάρτες;</summary><p>Ναι. Οι πολιτικές της Google όμως απαγορεύουν αντάλλαγμα (έκπτωση, δώρο) για κριτική και το να ζητάς κριτική μόνο από ικανοποιημένους πελάτες. Ζήτα την από όλους.</p></details>
+    <details><summary>Δουλεύει με iPhone και Android;</summary><p>Το QR δουλεύει σε όλα. Το NFC δουλεύει σε Android με ενεργό NFC και σε iPhone XS και νεότερα.</p></details>
+    <details><summary>Βρίσκω το σωστό link;</summary><p>Στο Google Business Profile ψάξε «Ζήτα κριτικές». Ο έλεγχος link παραπάνω σε προειδοποιεί αν βάλεις link χάρτη ή προφίλ αντί για φόρμα κριτικής.</p></details>
+    <details><summary>Αν αλλάξει το link μου;</summary><p>Το τυπωμένο QR δεν αλλάζει. Αν θέλεις ευελιξία, βάλε ένα δικό σου σύντομο link που ανακατευθύνει στο Google.</p></details>
+    <details><summary>Τι δεν υποσχόμαστε;</summary><p>Δεν εγγυόμαστε αριθμό κριτικών, δεν γράφουμε ούτε αγοράζουμε κριτικές και δεν αποθηκεύουμε δεδομένα. Ό,τι γράφεις εδώ μένει στον περιηγητή σου.</p></details>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <ol class="fn"><li id="fn1">Ενδεικτική τιμή χωρίς ΦΠΑ για ποσότητα 1. Οι τιμές και οι εκπτώσεις ποσότητας ορίζονται από τον πωλητή και μπορεί να αλλάξουν.</li><li>Η υπηρεσία είναι ανεξάρτητη και δεν συνδέεται με την Google LLC. Τα Google και Google Maps είναι εμπορικά σήματα της Google LLC. Η εμβέλεια NFC εξαρτάται από το κινητό.</li></ol>
+  <p><b id="footBrand">Aster</b> · <span id="footContact"></span></p>
+</footer>
+<script src="config.js"></script>
+<script src="qr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
