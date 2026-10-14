@@ -1,0 +1,6 @@
+{
+  "name": "gonuts-site",
+  "private": true,
+  "type": "module",
+  "scripts": { "generate": "node scripts/build.js", "test": "node tests/run.js", "dev": "node scripts/serve.js" }
+}

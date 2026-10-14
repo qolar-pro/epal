@@ -1,0 +1,97 @@
+{
+  "repo": "cody-raves/Gonuts",
+  "brand": "GoNuts",
+  "site": "https://gonuts-apple.vercel.app",
+  "jar": { "file": "GoNuts-0.1.0-mc26.2.jar", "minecraft": "26.2" },
+  "meta": {
+    "title": "GoNuts: trade the DonutSMP auction house on autopilot",
+    "description": "A free, open source Fabric mod for Minecraft 26.2 that reads the market, places orders, and lists what it buys, inside limits you set. Off until you turn it on."
+  },
+  "hero": {
+    "eyebrow": "Fabric mod for Minecraft 26.2",
+    "title": "Trade on autopilot.",
+    "sub": "The DonutSMP auction house, with a little less watching.",
+    "primary": "Download",
+    "secondary": "Watch the install",
+    "windowTitle": "GoNuts · Dashboard",
+    "shot": { "img": "assets/site/dashboard.jpg", "alt": "The GoNuts dashboard: realized profit, active listings, opportunities and win rate, with the bot's face at the top" }
+  },
+  "statement": "It reads the market. It places the orders. It lists what it buys. And it stays inside the limits you set, off until you turn it on.",
+  "bento": {
+    "title": "A trader that explains itself.",
+    "tiles": [
+      { "kind": "wide", "k": "No API key", "h": "DonutSMP switched its API off. GoNuts did not need it.", "p": "It reads the market from what the game shows: order house fills, live auction prices, and your own sales." },
+      { "kind": "stat", "stat": "0", "unit": "keys", "h": "to set up", "p": "Nothing to sign up for. Install the mod and join the server." },
+      { "kind": "stat", "stat": "1", "unit": "key", "h": "opens everything", "p": "Press B in game. Every market, every setting, one screen." },
+      { "kind": "wide inv", "k": "Both sides of the market", "h": "Buys, collects, lists, relists.", "p": "It places buy orders in the order house, collects what fills, and lists it on the auction house. It also buys underpriced listings and relists them." },
+      { "kind": "tile", "k": "Limits you set", "h": "A cap on every trade.", "p": "A cap per trade and per session, a dry run mode, and an emergency stop. When something does not match, it stops instead of guessing." },
+      { "kind": "tile", "k": "Rivals and money", "h": "See who trades what.", "p": "Follow other players and see what they order and list, which markets they work, and who pays whom among them." },
+      { "kind": "tile", "k": "Run it from Discord", "h": "One live panel.", "p": "A panel in a channel of yours shows what the bot is doing, with buttons to start, stop and tune it." },
+      { "kind": "wide", "k": "Keeps itself current", "h": "Tells you when a new build is out.", "p": "It shows what each build changes. Turn on auto-update and it installs when you close the game." }
+    ]
+  },
+  "moods": {
+    "title": "Meet the bot.",
+    "sub": "It has a face for every moment of the trading day.",
+    "items": [
+      { "id": "reading", "label": "Reading", "img": "assets/mascot-reading.gif", "alt": "The bot reading the market", "caption": "Reading the market", "text": "Watching order house fills and live auction prices, looking for something worth a bid." },
+      { "id": "working", "label": "Working", "img": "assets/mascot-working.gif", "alt": "The bot working a trade", "caption": "Working a trade", "text": "Placing an order, collecting a fill, or relisting an item, inside the limits you set." },
+      { "id": "sale", "label": "A sale", "img": "assets/mascot-sale.gif", "alt": "The bot with dollar signs for eyes", "caption": "A sale landed", "text": "It lights up when a sale lands, and the profit shows on the dashboard." },
+      { "id": "idle", "label": "Idle", "img": "assets/mascot-idle.gif", "alt": "The bot yawning", "caption": "Nothing to do", "text": "No opportunity worth taking, so it waits. It never trades just to look busy." }
+    ]
+  },
+  "install": {
+    "id": "install", "title": "Six steps from download to trading.", "sub": "Watch it through, or pick a step to jump the video to it.",
+    "video": { "id": "film", "stepsId": "steps", "src": "assets/site/first-install.mp4", "poster": "assets/site/first-install-poster.jpg", "captions": "assets/site/first-install.vtt", "caption": "Your first install, with captions", "guide": "docs/getting-started.md" },
+    "steps": [
+      { "at": 5,  "what": "Get what you need", "how": "Minecraft Java 26.2, Fabric Loader for 26.2, and the Fabric API mod." },
+      { "at": 14, "what": "Download GoNuts", "how": "One file: `GoNuts-0.1.0-mc26.2.jar` from the Releases page." },
+      { "at": 22, "what": "Put it in your mods folder", "how": "Close Minecraft first. The folder is `%appdata%\\.minecraft\\mods`." },
+      { "at": 32, "what": "Join DonutSMP", "how": "Turn the sidebar scoreboard on in `/settings`. GoNuts reads your balance from it." },
+      { "at": 40, "what": "Press B and open Autopilot", "how": "Check Max per trade and Max per session. Start small." },
+      { "at": 57, "what": "Enable live trading, then Start", "how": "Click the button, click again within 8 seconds to confirm, press Start." }
+    ],
+    "after": "After that, leave the game window open and visible with no menu left open. The End key stops it at once."
+  },
+  "discord": {
+    "id": "discord", "title": "Run it from Discord.", "sub": "A bot inside the mod posts one message in a channel of yours and keeps it up to date. You start, stop and tune the trader from the buttons under it. New to Discord bots? Watch it through: every click is spelled out.",
+    "video": { "id": "film-discord", "stepsId": "steps-discord", "src": "assets/site/discord-setup.mp4", "poster": "assets/site/discord-setup-poster.jpg", "captions": "assets/site/discord-setup.vtt", "caption": "Setting up the Discord panel, with captions", "guide": "docs/discord.md" },
+    "steps": [
+      { "at": 6,  "what": "Get what you need", "how": "A Discord account, a server you own, and GoNuts already trading." },
+      { "at": 16, "what": "Create the bot and copy its token", "how": "On `discord.com/developers/applications`: New Application, then Bot, then Reset Token." },
+      { "at": 37, "what": "Invite it to your server", "how": "OAuth2, URL Generator: tick `bot`, then View Channels, Send Messages and Attach Files." },
+      { "at": 50, "what": "Copy two ids", "how": "Turn on Developer Mode, right-click the channel, then right-click your own name." },
+      { "at": 69, "what": "Paste them into GoNuts", "how": "Press B, open Autopilot, click the top right button twice, paste, Save." },
+      { "at": 90, "what": "Use the panel", "how": "Pick a page from the dropdown. Start and Stop work like the buttons in game." }
+    ],
+    "after": "The bot token is a password. Never post it or share it. If it gets out, press Reset Token on the developer page and paste the new one into GoNuts."
+  },
+  "screens": {
+    "title": "Everything on one key.", "sub": "Press B in game. Opportunities, live markets, the order house, rivals, performance and every setting are in one place.",
+    "shots": [
+      { "img": "assets/site/dashboard.jpg", "alt": "The GoNuts dashboard: realized profit, active listings, opportunities and win rate, with the bot's face at the top", "caption": "The dashboard, on a fresh install before any trades." },
+      { "img": "assets/site/autopilot.jpg", "alt": "The Autopilot tab with its setup checklist and the spend limits", "caption": "Autopilot, where the spend limits and the on switch live." }
+    ]
+  },
+  "specs": {
+    "title": "Tech specs.",
+    "rows": [
+      ["Game", "Minecraft Java 26.2"],
+      ["Loader", "Fabric Loader for 26.2, plus the Fabric API mod"],
+      ["Java", "25"],
+      ["Server", "DonutSMP"],
+      ["API key", "None needed"],
+      ["Price", "Free"],
+      ["Licence", "MIT, open source"]
+    ]
+  },
+  "news": { "title": "What's new.", "sub": "The same notes the mod shows in its update notice, in your local time.", "loading": "Fetching the changelog from GitHub.", "failed": "The changelog could not be fetched just now. It is on GitHub, linked below.", "firstCount": 3 },
+  "risk": {
+    "title": "Know the risk before you turn it on.",
+    "paragraphs": [
+      "DonutSMP's rules ban scripts, macros and auto-clickers, and enforcement can reach every account linked to a player. Running live trading is a ban risk that you, the account owner, choose to take.",
+      "Watching prices and reading the screens carry no such risk; live trading does. GoNuts is an independent project, not affiliated with or endorsed by DonutSMP."
+    ]
+  },
+  "cta": { "title": "Get GoNuts.", "sub": "Free. Off until you turn it on." }
+}
