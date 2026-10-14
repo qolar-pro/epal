@@ -8,7 +8,8 @@ import { parseChangelog, splitKind } from '../js/lib/changelog.js';
 import { clock, pickJar, minecraftVersion, describeBuild, MB } from '../js/lib/format.js';
 import { currentStep } from '../js/lib/steps.js';
 import { readCache, writeCache } from '../js/lib/cache.js';
-import { litCount, scrollProgress, tiltAngles } from '../js/lib/motion.js';
+import { litCount, scrollProgress, tiltAngles, nearestIndex, activeSection, pageProgress } from '../js/lib/motion.js';
+import { iconNames, icon, donut } from '../scripts/icons.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 let n = 0;
@@ -37,6 +38,11 @@ t('litCount', () => { assert.equal(litCount(0, 10), 0); assert.equal(litCount(0.
 t('scrollProgress', () => { assert.equal(scrollProgress(800, 400, 1000), 0); assert.ok(scrollProgress(0, 400, 1000) > 0.5); assert.ok(scrollProgress(-500, 400, 1000) >= 1); });
 t('tiltAngles', () => { assert.deepEqual(tiltAngles(0.5, 0.5), { rx: 0, ry: 0 }); const a = tiltAngles(1, 0); assert.ok(a.ry > 0 && a.rx > 0); const b = tiltAngles(5, -5); assert.deepEqual(b, tiltAngles(1, 0), 'clamped'); });
 
+t('nearestIndex', () => { assert.equal(nearestIndex([100, 500, 900], 480), 1); assert.equal(nearestIndex([100, 500, 900], 5000), 2); assert.equal(nearestIndex([], 10), -1); });
+t('activeSection', () => { assert.equal(activeSection([500, 1200, 2000], 100), -1); assert.equal(activeSection([-300, 400, 2000], 120), 0); assert.equal(activeSection([-300, -10, 2000], 120), 1); });
+t('pageProgress', () => { assert.equal(pageProgress(0, 5000, 800), 0); assert.equal(pageProgress(4200, 5000, 800), 1); assert.equal(pageProgress(2100, 5000, 800), 0.5); assert.equal(pageProgress(10, 500, 800), 0); });
+t('icons: every name renders an svg; donut is 12x12', () => { iconNames.forEach((n) => assert.match(icon(n), /^<svg [^>]*aria-hidden="true"/)); assert.equal((donut().match(/<rect /g) || []).length > 60, true); });
+
 /* ---------- generated pages ---------- */
 execFileSync('node', [join(root, 'scripts/build.js')], { stdio: 'pipe' });
 const site = JSON.parse(readFileSync(join(root, 'content/site.json'), 'utf8'));
@@ -58,6 +64,19 @@ t('index: steps ascend, 12 step buttons, moods wired', () => {
 t('index: bento has every tile, download links point at the release', () => {
   assert.equal((pages.index.match(/class="tile /g) || []).length, site.bento.tiles.length);
   assert.ok(pages.index.includes(`https://github.com/${site.repo}/releases/latest/download/${site.jar.file}`)); assert.ok((pages.index.match(/data-download/g) || []).length >= 3);
+});
+t('index: how-it-works, keys, faq, lightbox, play buttons, mobile menu', () => {
+  const h = pages.index;
+  assert.equal((h.match(/class="how-step"/g) || []).length, site.how.steps.length);
+  assert.equal((h.match(/class="key"/g) || []).length, site.guard.keys.length);
+  assert.equal((h.match(/<details>/g) || []).length, site.faq.items.length);
+  assert.equal((h.match(/class="zoom"/g) || []).length, site.screens.shots.length); assert.match(h, /<dialog id="lightbox"/);
+  assert.equal((h.match(/class="play"/g) || []).length, 2);
+  const m = /class="menu-btn"[^>]*aria-controls="([^"]+)"/.exec(h); assert.ok(m && idsOf(h).includes(m[1]), 'menu button controls an existing id');
+  assert.ok((h.match(/class="progress"/g) || []).length === 1);
+});
+t('index: scrollspy targets exist for every nav link', () => {
+  const ids = idsOf(pages.index); [...pages.index.matchAll(/class="gnav-links"[\s\S]*?<\/ul>/g)][0][0].match(/href="\/#([^"]+)"/g).forEach((l) => assert.ok(ids.includes(l.slice(8, -1)), l));
 });
 t('changelog page lists all builds', () => { assert.match(pages.changelog, /data-all="true"/); });
 t('css: hidden attribute always wins', () => { assert.match(readFileSync(join(root, 'css/style.css'), 'utf8'), /\[hidden\]\s*\{\s*display:\s*none\s*!important/); });

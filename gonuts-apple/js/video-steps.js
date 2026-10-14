@@ -26,3 +26,14 @@ export function wireVideo(filmId, stepsId) {
     document.querySelectorAll('video').forEach((other) => { if (other !== film) other.pause(); });
   });
 }
+
+/** The big play button over a video poster: starts the video, hides while it plays, comes back when it ends. */
+export function wirePlayButtons() {
+  document.querySelectorAll('.play[data-for]').forEach((button) => {
+    const film = document.getElementById(button.dataset.for);
+    if (!film) return;
+    button.addEventListener('click', () => { film.play()?.catch(() => { /* needs a click on the video itself */ }); film.focus(); });
+    film.addEventListener('play', () => { button.hidden = true; });
+    film.addEventListener('ended', () => { button.hidden = false; });
+  });
+}

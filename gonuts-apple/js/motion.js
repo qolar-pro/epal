@@ -2,6 +2,15 @@ import { litCount, scrollProgress, tiltAngles } from './lib/motion.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/** Runs `fn` once now and then at most once per animation frame while scrolling or resizing. */
+export function onFrame(fn) {
+  let queued = false;
+  const run = () => { queued = false; fn(); };
+  const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(run); } };
+  addEventListener('scroll', schedule, { passive: true }); addEventListener('resize', schedule);
+  fn();
+}
+
 /** Fade sections in as they scroll into view. */
 export function reveal() {
   const nodes = document.querySelectorAll('.rv');
@@ -34,4 +43,23 @@ export function tilt(areaId = 'stage', cardId = 'device') {
     card.style.setProperty('--mx', `${x * 100}%`); card.style.setProperty('--my', `${y * 100}%`);
   });
   area.addEventListener('pointerleave', () => ['--rx', '--ry', '--mx', '--my'].forEach((p) => card.style.removeProperty(p)));
+}
+
+/** Tiles glow where the pointer is. */
+export function spotlight(selector = '.tile') {
+  if (reduce) return;
+  document.querySelectorAll(selector).forEach((el) => {
+    el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); el.style.setProperty('--mx', `${e.clientX - r.left}px`); el.style.setProperty('--my', `${e.clientY - r.top}px`); });
+  });
+}
+
+/** The pixel donuts drift at their own speed as the page scrolls. */
+export function parallaxSprites() {
+  if (reduce) return;
+  const sprites = [...document.querySelectorAll('.sp[data-depth]')];
+  if (!sprites.length) return;
+  onFrame(() => sprites.forEach((s) => {
+    const host = s.parentElement.parentElement.getBoundingClientRect();
+    s.style.transform = `translateY(${(-host.top * Number(s.dataset.depth)).toFixed(1)}px)`;
+  }));
 }
