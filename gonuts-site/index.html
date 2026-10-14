@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoNuts</title>
+<meta name="description" content="Auction trading for DonutSMP. A free, open source Fabric mod for Minecraft 26.2 that reads the market, places orders, and lists what it buys, inside limits you set.">
+<meta property="og:title" content="GoNuts: auction trading for DonutSMP">
+<meta property="og:description" content="A free, open source Fabric mod for Minecraft 26.2. Reads the market, places orders, lists what it buys. Off by default, inside limits you set.">
+<meta property="og:image" content="https://cody-raves.github.io/Gonuts/assets/logo.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0c121b">
+<link rel="icon" href="assets/mascot-idle.gif">
+<link rel="preload" href="assets/fonts/pixelify-sans-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/rubik-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/main.js" data-repo="cody-raves/Gonuts" data-first="4"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="#top" aria-label="GoNuts, top of page"><img src="assets/logo.png" alt="GoNuts" width="512" height="185"></a>
+    <nav aria-label="Sections">
+      <a class="optional" href="#install">Install</a>
+      <a class="optional" href="#discord">Discord</a>
+      <a class="optional" href="#does">What it does</a>
+      <a class="optional" href="#new">What's new</a>
+      <a href="https://github.com/cody-raves/Gonuts">GitHub</a>
+      <a class="button primary small" href="https://github.com/cody-raves/Gonuts/releases/latest/download/GoNuts-0.1.0-mc26.2.jar" data-download>Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <img class="hero-logo" src="assets/logo.png" alt="GoNuts" width="512" height="185">
+      <h1>Trade the DonutSMP auction house on autopilot</h1>
+      <p class="lede">A Fabric mod that reads the market, places buy orders, and lists what it buys. It stays inside the limits you set, and it is off until you turn it on.</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/cody-raves/Gonuts/releases/latest/download/GoNuts-0.1.0-mc26.2.jar" data-download>Download for Minecraft 26.2</a>
+        <a class="button" href="#install">Watch the install, 1:45</a>
+      </div>
+      <p class="build" id="build" aria-live="polite"></p>
+      <ul class="facts">
+        <li>Free and open source (MIT)</li>
+        <li>No API key needed</li>
+        <li>Fabric, Java 25</li>
+      </ul>
+    </div>
+
+    <div class="desk" role="group" aria-label="The GoNuts bot and its moods">
+      <div>
+        <div class="label">Your trading desk</div>
+        <div class="say">A little less watching.</div>
+        <div class="sub">It watches the market, bids, buys and relists, and it lights up when a sale lands.</div>
+      </div>
+      <div class="faces">
+        <figure><img src="assets/mascot-reading.gif" alt="The bot reading the market" width="110" height="110"><figcaption>Reading the market</figcaption></figure>
+        <figure><img src="assets/mascot-working.gif" alt="The bot working a trade" width="110" height="110"><figcaption>Working a trade</figcaption></figure>
+        <figure><img src="assets/mascot-sale.gif" alt="The bot with dollar signs for eyes" width="110" height="110"><figcaption>A sale landed</figcaption></figure>
+        <figure><img src="assets/mascot-idle.gif" alt="The bot yawning" width="110" height="110"><figcaption>Nothing to do</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install" aria-labelledby="h-install">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Install</div>
+      <h2 id="h-install">Six steps from download to trading</h2>
+      <p class="lede">Watch it through, or pick a step to jump the video to it.</p>
+    </div>
+    <div class="install-grid">
+      <div class="player">
+        <video id="film" controls preload="metadata" poster="assets/site/first-install-poster.jpg">
+          <source src="assets/site/first-install.mp4" type="video/mp4">
+          <track kind="captions" src="assets/site/first-install.vtt" srclang="en" label="English" default>
+          Your browser cannot play this video. <a href="assets/site/first-install.mp4">Download it</a> instead.
+        </video>
+        <div class="under">
+          <span>Your first install, with captions</span>
+          <a href="https://github.com/cody-raves/Gonuts/blob/main/docs/getting-started.md">Prefer to read? The written guide</a>
+        </div>
+      </div>
+      <div>
+        <ol class="steps" id="steps">
+          <li><button type="button" data-at="5"><span class="n">1</span><span><span class="what">Get what you need</span><span class="how">Minecraft Java 26.2, Fabric Loader for 26.2, and the Fabric API mod.</span></span><span class="at">0:05</span></button></li>
+          <li><button type="button" data-at="14"><span class="n">2</span><span><span class="what">Download GoNuts</span><span class="how">One file: <span class="mono">GoNuts-0.1.0-mc26.2.jar</span> from the Releases page.</span></span><span class="at">0:14</span></button></li>
+          <li><button type="button" data-at="22"><span class="n">3</span><span><span class="what">Put it in your mods folder</span><span class="how">Close Minecraft first. The folder is <span class="mono">%appdata%\.minecraft\mods</span>.</span></span><span class="at">0:22</span></button></li>
+          <li><button type="button" data-at="32"><span class="n">4</span><span><span class="what">Join DonutSMP</span><span class="how">Turn the sidebar scoreboard on in <span class="mono">/settings</span>. GoNuts reads your balance from it.</span></span><span class="at">0:32</span></button></li>
+          <li><button type="button" data-at="40"><span class="n">5</span><span><span class="what">Press B and open Autopilot</span><span class="how">Check Max per trade and Max per session. Start small.</span></span><span class="at">0:40</span></button></li>
+          <li><button type="button" data-at="57"><span class="n">6</span><span><span class="what">Enable live trading, then Start</span><span class="how">Click the button, click again within 8 seconds to confirm, press Start.</span></span><span class="at">0:57</span></button></li>
+        </ol>
+        <p class="after">After that, leave the game window open and visible with no menu left open. The End key stops it at once.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="discord" aria-labelledby="h-discord">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">Discord</div>
+      <h2 id="h-discord">Run it from Discord in six steps</h2>
+      <p class="lede">A bot inside the mod posts one message in a channel of yours and keeps it up to date. You start, stop and tune the trader from the buttons under it. New to Discord bots? Watch it through: every click is spelled out.</p>
+    </div>
+    <div class="install-grid">
+      <div class="player">
+        <video id="film-discord" controls preload="metadata" poster="assets/site/discord-setup-poster.jpg">
+          <source src="assets/site/discord-setup.mp4" type="video/mp4">
+          <track kind="captions" src="assets/site/discord-setup.vtt" srclang="en" label="English" default>
+          Your browser cannot play this video. <a href="assets/site/discord-setup.mp4">Download it</a> instead.
+        </video>
+        <div class="under">
+          <span>Setting up the Discord panel, with captions</span>
+          <a href="https://github.com/cody-raves/Gonuts/blob/main/docs/discord.md">Prefer to read? The written guide</a>
+        </div>
+      </div>
+      <div>
+        <ol class="steps" id="steps-discord">
+          <li><button type="button" data-at="6"><span class="n">1</span><span><span class="what">Get what you need</span><span class="how">A Discord account, a server you own, and GoNuts already trading.</span></span><span class="at">0:06</span></button></li>
+          <li><button type="button" data-at="16"><span class="n">2</span><span><span class="what">Create the bot and copy its token</span><span class="how">On <span class="mono">discord.com/developers/applications</span>: New Application, then Bot, then Reset Token.</span></span><span class="at">0:16</span></button></li>
+          <li><button type="button" data-at="37"><span class="n">3</span><span><span class="what">Invite it to your server</span><span class="how">OAuth2, URL Generator: tick <span class="mono">bot</span>, then View Channels, Send Messages and Attach Files.</span></span><span class="at">0:37</span></button></li>
+          <li><button type="button" data-at="50"><span class="n">4</span><span><span class="what">Copy two ids</span><span class="how">Turn on Developer Mode, right-click the channel, then right-click your own name.</span></span><span class="at">0:50</span></button></li>
+          <li><button type="button" data-at="69"><span class="n">5</span><span><span class="what">Paste them into GoNuts</span><span class="how">Press B, open Autopilot, click the top right button twice, paste, Save.</span></span><span class="at">1:09</span></button></li>
+          <li><button type="button" data-at="90"><span class="n">6</span><span><span class="what">Use the panel</span><span class="how">Pick a page from the dropdown. Start and Stop work like the buttons in game.</span></span><span class="at">1:30</span></button></li>
+        </ol>
+        <p class="after">The bot token is a password. Never post it or share it. If it gets out, press Reset Token on the developer page and paste the new one into GoNuts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="does" aria-labelledby="h-does">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">What it does</div>
+      <h2 id="h-does">A trader that explains itself</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>No API key</h3>
+        <p>DonutSMP switched off its public API. GoNuts reads the market from what the game shows: order house fills, live auction prices, and your own sales.</p>
+      </article>
+      <article class="card">
+        <h3>Both sides of the market</h3>
+        <p>It places buy orders in the order house, collects what fills, and lists it on the auction house. It also buys underpriced listings and relists them.</p>
+      </article>
+      <article class="card">
+        <h3>Limits you set</h3>
+        <p>A cap per trade and per session, a dry run mode, and an emergency stop. When something does not match, it stops instead of guessing.</p>
+      </article>
+      <article class="card">
+        <h3>Rivals and money</h3>
+        <p>Follow other players and see what they order and list, which markets they work, and who pays whom among them.</p>
+      </article>
+      <article class="card">
+        <h3>Run it from Discord</h3>
+        <p>One live panel in a channel of yours shows what the bot is doing, with buttons to start, stop and tune it.</p>
+      </article>
+      <article class="card">
+        <h3>Keeps itself current</h3>
+        <p>It tells you when a new build is out and what it changes. Turn on auto-update and it installs when you close the game.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="screen" aria-labelledby="h-screen">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">The screen</div>
+      <h2 id="h-screen">Everything on one key</h2>
+      <p class="lede">Press B in game. Opportunities, live markets, the order house, rivals, performance and every setting are in one place.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/site/dashboard.jpg" alt="The GoNuts dashboard: realized profit, active listings, opportunities and win rate, with the bot&#39;s face at the top" width="1600" height="900" loading="lazy">
+        <figcaption>The dashboard, on a fresh install before any trades.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/site/autopilot.jpg" alt="The Autopilot tab with its setup checklist and the spend limits" width="1600" height="900" loading="lazy">
+        <figcaption>Autopilot, where the spend limits and the on switch live.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="new" aria-labelledby="h-new">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label">What&#39;s new</div>
+      <h2 id="h-new">The latest builds</h2>
+      <p class="lede">The same notes the mod shows in its update notice, in your local time.</p>
+    </div>
+    <div class="log" id="log" aria-live="polite" data-failed="The changelog could not be fetched just now. It is on GitHub, linked below.">
+      <div class="entry"><time>Loading</time><ul><li>Fetching the changelog from GitHub.</li></ul></div>
+    </div>
+    <div class="log-foot">
+      <button class="button small" id="more" type="button" hidden>Show older builds</button>
+      <a href="https://github.com/cody-raves/Gonuts/blob/main/CHANGELOG.md">The full changelog on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="risk" aria-labelledby="h-risk">
+  <div class="wrap">
+    <div class="risk">
+      <h2 id="h-risk">Know the risk before you turn it on</h2>
+      <p>DonutSMP&#39;s rules ban scripts, macros and auto-clickers, and enforcement can reach every account linked to a player. Running live trading is a ban risk that you, the account owner, choose to take.</p>
+      <p>Watching prices and reading the screens carry no such risk; live trading does. GoNuts is an independent project, not affiliated with or endorsed by DonutSMP.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>GoNuts is free and open source under the MIT license.</span>
+    <span><a href="https://github.com/cody-raves/Gonuts">Source</a> · <a href="https://github.com/cody-raves/Gonuts/releases/latest">Releases</a> · <a href="https://github.com/cody-raves/Gonuts/issues">Report a problem</a></span>
+  </div>
+</footer>
+</body>
+</html>

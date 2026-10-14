@@ -1,0 +1,168 @@
+/* GoNuts site. The palette is the mod's own, taken from its screens: one dark world, by design.
+   Sections: tokens · base · layout · bar · buttons · hero · video+steps · cards · shots · changelog · risk · footer · responsive */
+
+/* ---------- tokens ---------- */
+:root {
+  --night: #0c121b;
+  --inset: #101823;
+  --surface: #182230;
+  --edge: #2c3b4c;
+  --hover: #243747;
+  --active: #243042;
+  --text: #f0eee7;
+  --secondary: #b6c2cd;
+  --muted: #8799aa;
+  --gold: #f4cd7a;
+  --gold-hover: #ffdf9a;
+  --on-gold: #1b1408;
+  --teal: #56dccb;
+  --good: #77deb0;
+  --warn: #f3b576;
+  --risk-bg: #241c14;
+  --risk-edge: #5a4327;
+  --display: "Pixelify Sans", "Rubik", system-ui, sans-serif;
+  --body: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --wide: 1080px;
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+/* Author styles such as .button { display: inline-flex } would otherwise override the hidden attribute. */
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--night); color: var(--text); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+/* height: auto, or the width and height attributes hold the height while the width shrinks. */
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: var(--text); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(34px, 5.2vw, 54px); letter-spacing: 0.01em; }
+h2 { font-size: clamp(27px, 3.4vw, 36px); }
+h3 { font-size: 21px; font-weight: 500; }
+p { margin: 0; max-width: 62ch; }
+code, .mono { font-family: var(--mono); font-size: 0.88em; }
+code { background: var(--inset); border: 1px solid var(--edge); border-radius: 5px; padding: 1px 6px; color: var(--gold); }
+.lede { color: var(--secondary); font-size: 19px; }
+.label { font: 500 13px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 20; background: var(--gold); color: var(--on-gold); padding: 10px 14px; border-radius: 8px; font-weight: 600; }
+.skip:focus { left: 8px; }
+
+/* ---------- layout ---------- */
+.wrap { width: min(var(--wide), 100% - 32px); margin-inline: auto; }
+section { padding-block: 64px; }
+.section-head { display: grid; gap: 12px; margin-bottom: 32px; }
+
+/* ---------- top bar ---------- */
+.bar { position: sticky; top: 0; z-index: 10; background: rgba(12, 18, 27, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--edge); }
+.bar .wrap { display: flex; align-items: center; gap: 20px; min-height: 60px; }
+.bar img { height: 30px; width: auto; }
+.bar nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
+.bar nav a { color: var(--secondary); text-decoration: none; font-size: 15px; }
+.bar nav a:hover { color: var(--text); }
+.bar nav a.button { color: var(--on-gold); }
+
+/* ---------- buttons ---------- */
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 16px/1 var(--body); text-decoration: none; cursor: pointer;
+  padding: 14px 22px; border-radius: 8px; border: 1px solid var(--edge); background: var(--surface); color: var(--text);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.button:hover { background: var(--hover); border-color: var(--muted); color: var(--text); }
+.button.primary { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.button.primary:hover { background: var(--gold-hover); border-color: var(--gold-hover); color: var(--on-gold); transform: translateY(-1px); }
+.button.small { padding: 9px 14px; font-size: 14px; }
+
+/* ---------- hero ---------- */
+.hero { padding-block: 56px 48px; }
+.hero-grid { display: grid; gap: 40px; align-items: center; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+.hero-logo { width: min(380px, 80%); margin-bottom: 26px; }
+.hero h1 + .lede { margin-top: 18px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.build { margin-top: 16px; color: var(--muted); font-size: 14px; min-height: 1.6em; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 26px 0 0; padding: 0; list-style: none; color: var(--secondary); font-size: 15px; }
+.facts li::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; background: var(--good); vertical-align: 2px; }
+
+/* The mod's "your trading desk" card, standing in for a product shot. */
+.desk { background: linear-gradient(160deg, #173238, var(--surface) 62%); border: 1px solid var(--edge); border-radius: 12px; padding: 24px; display: grid; gap: 16px; }
+.desk .faces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.desk figure { margin: 0; background: var(--inset); border: 1px solid var(--edge); border-radius: 8px; padding: 10px 6px 8px; text-align: center; }
+.desk figure img { width: 100%; max-width: 86px; aspect-ratio: 1; margin-inline: auto; image-rendering: pixelated; }
+.desk figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.3; }
+.desk .say { font-family: var(--display); font-size: 22px; font-weight: 500; }
+.desk .sub { color: var(--secondary); font-size: 15px; }
+
+/* ---------- a video and the steps beside it ---------- */
+.install-grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+.player { background: var(--inset); border: 1px solid var(--edge); border-radius: 12px; overflow: hidden; }
+.player video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.player .under { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: space-between; align-items: center; padding: 12px 16px; color: var(--muted); font-size: 14px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.steps button {
+  all: unset; box-sizing: border-box; cursor: pointer; width: 100%;
+  display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 12px; align-items: start;
+  padding: 12px 14px; border-radius: 8px; border: 1px solid var(--edge); background: var(--surface); color: var(--text);
+}
+.steps button:hover { background: var(--hover); }
+.steps button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.steps .n { font: 700 15px/26px var(--display); width: 26px; height: 26px; text-align: center; border-radius: 6px; background: var(--inset); color: var(--gold); border: 1px solid var(--edge); }
+.steps .what { font-weight: 500; display: block; }
+.steps .how { display: block; color: var(--secondary); font-size: 14.5px; margin-top: 2px; }
+.steps .at { font: 400 13px/26px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.steps button[aria-current="step"] { border-color: var(--gold); background: var(--active); }
+.steps button[aria-current="step"] .n { background: var(--gold); color: var(--on-gold); border-color: var(--gold); }
+.after { margin-top: 14px; color: var(--muted); font-size: 14.5px; }
+
+/* ---------- what it does ---------- */
+.cards { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--edge); border-radius: 10px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.card p { color: var(--secondary); font-size: 16px; }
+
+/* ---------- the screen ---------- */
+.shots { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.shot { margin: 0; background: var(--inset); border: 1px solid var(--edge); border-radius: 12px; overflow: hidden; }
+.shot figcaption { padding: 12px 16px; color: var(--secondary); font-size: 15px; border-top: 1px solid var(--edge); }
+
+/* ---------- what's new ---------- */
+.log { display: grid; gap: 12px; }
+.entry { background: var(--surface); border: 1px solid var(--edge); border-radius: 10px; padding: 16px 20px; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 20px; }
+.entry time { font: 400 14px/1.7 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.entry ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.entry li { padding-left: 16px; position: relative; max-width: 68ch; }
+.entry li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 6px; height: 6px; background: var(--gold); }
+.entry .kind { font-weight: 600; color: var(--gold); }
+.log-foot { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; color: var(--muted); font-size: 15px; }
+
+/* ---------- the risk ---------- */
+.risk { background: var(--risk-bg); border: 1px solid var(--risk-edge); border-radius: 12px; padding: 26px 28px; display: grid; gap: 12px; }
+.risk h2 { color: var(--warn); font-size: 26px; }
+.risk p { color: var(--text); max-width: 72ch; }
+.risk p + p { color: var(--secondary); }
+
+/* ---------- footer ---------- */
+footer { border-top: 1px solid var(--edge); padding-block: 32px 48px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  section { padding-block: 44px; }
+  .hero-grid, .install-grid { grid-template-columns: minmax(0, 1fr); }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shots { grid-template-columns: minmax(0, 1fr); }
+  .bar nav a.optional { display: none; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .desk .faces { grid-template-columns: repeat(2, 1fr); }
+  .steps button { grid-template-columns: 30px minmax(0, 1fr); }
+  .steps .at { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button { transition: none; }
+}
