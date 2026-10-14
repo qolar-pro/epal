@@ -15,7 +15,7 @@ organised as a small maintainable codebase. Static, no framework, no runtime dep
 - Accessibility: skip link, `aria-current="step"` on the playing step, labelled sections, captions on both videos.
 
 ## Commands
-`node scripts/build.js` build · `node tests/run.js` tests (19 checks) · `node scripts/serve.js` local server with the production headers.
+`node scripts/build.js` (or `npm run generate`) build · `node tests/run.js` tests (19 checks) · `node scripts/serve.js` local server with the production headers.
 
 ## Credits and licence
 The design, copy, artwork, videos and captions are the work of the GoNuts project (cody-raves/Gonuts, MIT licence), copied here for this recreation. GoNuts is not affiliated with DonutSMP.
